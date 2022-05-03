@@ -3,7 +3,8 @@ module game_soc (
 	clk_clk,
 	hex_digits_export,
 	key_external_connection_export,
-	keycode_export,
+	keycode0_export,
+	keycode1_export,
 	leds_export,
 	reset_reset_n,
 	sdram_clk_clk,
@@ -22,12 +23,17 @@ module game_soc (
 	spi0_SS_n,
 	usb_gpx_export,
 	usb_irq_export,
-	usb_rst_export);	
+	usb_rst_export,
+	i2c0_sda_in,
+	i2c0_scl_in,
+	i2c0_sda_oe,
+	i2c0_scl_oe);	
 
 	input		clk_clk;
 	output	[15:0]	hex_digits_export;
 	input	[1:0]	key_external_connection_export;
-	output	[7:0]	keycode_export;
+	output	[23:0]	keycode0_export;
+	output	[23:0]	keycode1_export;
 	output	[13:0]	leds_export;
 	input		reset_reset_n;
 	output		sdram_clk_clk;
@@ -47,4 +53,8 @@ module game_soc (
 	input		usb_gpx_export;
 	input		usb_irq_export;
 	output		usb_rst_export;
+	input		i2c0_sda_in;
+	input		i2c0_scl_in;
+	output		i2c0_sda_oe;
+	output		i2c0_scl_oe;
 endmodule

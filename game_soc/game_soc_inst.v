@@ -2,7 +2,8 @@
 		.clk_clk                        (<connected-to-clk_clk>),                        //                     clk.clk
 		.hex_digits_export              (<connected-to-hex_digits_export>),              //              hex_digits.export
 		.key_external_connection_export (<connected-to-key_external_connection_export>), // key_external_connection.export
-		.keycode_export                 (<connected-to-keycode_export>),                 //                 keycode.export
+		.keycode0_export                (<connected-to-keycode0_export>),                //                keycode0.export
+		.keycode1_export                (<connected-to-keycode1_export>),                //                keycode1.export
 		.leds_export                    (<connected-to-leds_export>),                    //                    leds.export
 		.reset_reset_n                  (<connected-to-reset_reset_n>),                  //                   reset.reset_n
 		.sdram_clk_clk                  (<connected-to-sdram_clk_clk>),                  //               sdram_clk.clk
@@ -21,6 +22,10 @@
 		.spi0_SS_n                      (<connected-to-spi0_SS_n>),                      //                        .SS_n
 		.usb_gpx_export                 (<connected-to-usb_gpx_export>),                 //                 usb_gpx.export
 		.usb_irq_export                 (<connected-to-usb_irq_export>),                 //                 usb_irq.export
-		.usb_rst_export                 (<connected-to-usb_rst_export>)                  //                 usb_rst.export
+		.usb_rst_export                 (<connected-to-usb_rst_export>),                 //                 usb_rst.export
+		.i2c0_sda_in                    (<connected-to-i2c0_sda_in>),                    //                    i2c0.sda_in
+		.i2c0_scl_in                    (<connected-to-i2c0_scl_in>),                    //                        .scl_in
+		.i2c0_sda_oe                    (<connected-to-i2c0_sda_oe>),                    //                        .sda_oe
+		.i2c0_scl_oe                    (<connected-to-i2c0_scl_oe>)                     //                        .scl_oe
 	);
 

@@ -825,7 +825,7 @@
 									<root>true</root>
 									<content delegate="SplitDockStationFactory">
 										<fullscreen-action>false</fullscreen-action>
-										<node nodeId="1372710005721" orientation="HORIZONTAL" divider="0.22181146025878004">
+										<node nodeId="1372710005721" orientation="HORIZONTAL" divider="0.2542372881355932">
 											<node nodeId="1375985011088" orientation="VERTICAL" divider="0.504054054054054">
 												<leaf id="0" nodeId="1375985003630">
 													<placeholders>

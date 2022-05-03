@@ -1,0 +1,177 @@
+module vga_text_avl_interface (
+	// Avalon Clock Input, note this clock is also used for VGA, so this must be 50Mhz
+	// We can put a clock divider here in the future to make this IP more generalizable
+	input logic CLK,
+	
+	// Avalon Reset Input
+	input logic RESET,
+	
+	// Avalon-MM Slave Signals
+	input  logic AVL_READ,					// Avalon-MM Read
+	input  logic AVL_WRITE,					// Avalon-MM Write
+	input  logic AVL_CS,					// Avalon-MM Chip Select
+	input  logic [3:0] AVL_BYTE_EN,			// Avalon-MM Byte Enable
+	input  logic [11:0] AVL_ADDR,			// Avalon-MM Address
+	input  logic [31:0] AVL_WRITEDATA,		// Avalon-MM Write Data
+	output logic [31:0] AVL_READDATA,		// Avalon-MM Read Data
+	
+	// Exported Conduit (mapped to VGA port - make sure you export in Platform Designer)
+	output logic [3:0]  red, green, blue,	// VGA color channels (mapped to output pins in top-level)
+	output logic hs, vs						// VGA HS/VS
+);
+
+//logic [31:0] LOCAL_REG       [`NUM_REGS]; // Registers
+//put other local variables here
+//logic [31:0] read, write;
+logic [31:0] palatte [8];
+logic pixel_clk, blank, sync;
+logic [9:0] DrawX, DrawY;
+//logic [10:0] shape_size_x = 8;
+//logic [10:0] shape_size_y = 16;
+logic [10:0] sprite_addr;
+logic [7:0] sprite_data;
+
+logic [6:0] col;
+logic [4:0] row;
+logic [11:0] words;
+logic [10:0] reg_addr;
+logic select;
+logic [15:0] reg_data;
+logic [3:0] Red, Green, Blue;
+logic [31:0] temp,readdata;
+logic [3:0] FGD_IDX, BKG_IDX;
+logic [2:0] FGD_addr, BKG_addr;
+logic [11:0] FGD_color, BKG_color;
+logic FGD_palatte_select, BKG_palatte_select;
+logic rden_palatte,wren_mem;
+
+
+assign col = DrawX >> 3;//DrawX integer division of 8
+assign row = DrawY >> 4;//DrawY integer division of 16
+assign words = col + row*80;//calculate the byte that is currently displayed
+assign reg_addr = words >> 1;//integer division by 2 to find the address in VRAM
+assign select = words[0];//from 0 to 1, determine which byte in the register
+assign sprite_addr = {reg_data[14:8], DrawY[3:0]};//the address of sprite is calculated
+							//by right shift the code and add the offset. The code is the
+							//character code in font_rom, the offset is from DrawY.
+assign FGD_IDX = reg_data[7:4];
+assign BKG_IDX = reg_data[3:0];
+assign FGD_palatte_select = FGD_IDX[0];
+assign BKG_palatte_select = BKG_IDX[0];
+assign FGD_addr = FGD_IDX>>1;
+assign BKG_addr = BKG_IDX>>1;
+assign wren_mem = ~AVL_ADDR[11] & AVL_WRITE;
+
+
+//Declare submodules..e.g. VGA controller, ROMS, etc
+
+always_ff @(posedge CLK)
+begin
+		if(AVL_ADDR[11])
+		begin
+				AVL_READDATA <= palatte[AVL_ADDR[2:0]];
+				if(AVL_WRITE)
+				palatte[AVL_ADDR[2:0]] <= AVL_WRITEDATA;
+		end
+		else
+				AVL_READDATA <= readdata;
+
+end
+
+vga_controller vga(.Clk(CLK), .Reset(RESET), .hs, .vs, .pixel_clk, .blank, .sync, .DrawX, .DrawY);
+font_rom font(.addr(sprite_addr), .data(sprite_data));
+ram ram0(.address_a(AVL_ADDR[10:0]), .address_b(reg_addr), .byteena_a(AVL_BYTE_EN),
+			.clock(CLK), .data_a(AVL_WRITEDATA), .data_b(AVL_WRITEDATA),
+			.rden_a(AVL_READ), .rden_b(1'b1), .wren_a(wren_mem),.wren_b(1'b0),
+			.q_a(readdata),.q_b(temp));
+			
+
+	
+// Read and write from AVL interface to register block, note that READ waitstate = 1, so this should be in always_ff
+
+
+
+//handle drawing (may either be combinational or sequential - or both).
+always_comb
+begin
+
+//Select the bytes being drawn depending on the select signal.
+//the select signal is the last two bits of the byte address.
+
+	if(select)
+		reg_data = temp[31:16];
+	else
+		reg_data = temp[15:0];
+
+end
+
+always_comb
+begin
+
+	if(FGD_palatte_select)
+		FGD_color = palatte[FGD_addr][24:13];
+	else
+		FGD_color = palatte[FGD_addr][12:1];
+	if(BKG_palatte_select)
+		BKG_color = palatte[BKG_addr][24:13];
+	else
+		BKG_color = palatte[BKG_addr][12:1];
+
+end
+							
+
+
+always_comb
+begin:RGB_Display
+	
+	Red = BKG_color[11:8];
+	Green = BKG_color[7:4];
+	Blue = BKG_color[3:0];
+	if (blank == 1'b0)//blank is active low, and should be the first of the if statement
+	begin
+		Red = 4'b0;//display black
+		Green = 4'b0;
+		Blue = 4'b0;
+	end
+	//if the corresponding bit is one, it's drawing the foreground
+	else if(sprite_data[ 7 - DrawX[2:0]] == 1'b1) 
+	begin
+		if(reg_data[15] == 1'b1)//If inverse, draw the pixel in background color
+		begin
+			Red = BKG_color[11:8];
+			Green = BKG_color[7:4];
+			Blue = BKG_color[3:0];
+		end
+		else
+		begin
+			Red = FGD_color[11:8];
+			Green = FGD_color[7:4];
+			Blue = FGD_color[3:0];
+		end
+	end
+	//if the corresponding bit is zero, it's drawing the background
+	else if (sprite_data[7 - DrawX[2:0]] == 1'b0)
+	begin
+		if(reg_data[15] == 1'b1)//If inverse, draw the pixel in foreground color
+		begin
+			Red = FGD_color[11:8];
+			Green = FGD_color[7:4];
+			Blue = FGD_color[3:0];
+		end
+		else
+		begin
+			Red = BKG_color[11:8];
+			Green = BKG_color[7:4];
+			Blue = BKG_color[3:0];
+		end
+	end
+end	
+
+always_ff @(posedge pixel_clk) begin
+	red <= Red;// Set three registers to store the value of RGB to avoid glitches.
+	green <= Green;
+	blue <= Blue;
+end
+		
+
+endmodule

@@ -2,8 +2,13 @@
 		port (
 			clk_clk                        : in    std_logic                     := 'X';             -- clk
 			hex_digits_export              : out   std_logic_vector(15 downto 0);                    -- export
+			i2c0_sda_in                    : in    std_logic                     := 'X';             -- sda_in
+			i2c0_scl_in                    : in    std_logic                     := 'X';             -- scl_in
+			i2c0_sda_oe                    : out   std_logic;                                        -- sda_oe
+			i2c0_scl_oe                    : out   std_logic;                                        -- scl_oe
 			key_external_connection_export : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- export
-			keycode_export                 : out   std_logic_vector(7 downto 0);                     -- export
+			keycode0_export                : out   std_logic_vector(23 downto 0);                    -- export
+			keycode1_export                : out   std_logic_vector(23 downto 0);                    -- export
 			leds_export                    : out   std_logic_vector(13 downto 0);                    -- export
 			reset_reset_n                  : in    std_logic                     := 'X';             -- reset_n
 			sdram_clk_clk                  : out   std_logic;                                        -- clk
