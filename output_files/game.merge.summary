@@ -1,0 +1,16 @@
+Partition Merge Status : Successful - Fri May 06 09:49:22 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : game
+Top-level Entity Name : game
+Family : MAX 10
+Total logic elements : 7,686
+    Total combinational functions : 6,600
+    Dedicated logic registers : 3,100
+Total registers : 3100
+Total pins : 141
+Total virtual pins : 0
+Total memory bits : 593,608
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1
+UFM blocks : 0
+ADC blocks : 0

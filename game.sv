@@ -63,7 +63,7 @@ module game (
 //  REG/WIRE declarations
 //=======================================================
 	logic SPI0_CS_N, SPI0_SCLK, SPI0_MISO, SPI0_MOSI, USB_GPX, USB_IRQ, USB_RST;
-	logic [3:0] hex_num_4, hex_num_3, hex_num_1, hex_num_0; //4 bit input hex digits
+	logic [3:0] hex_num_4, hex_num_3, hex_num_1, hex_num_0, score; //4 bit input hex digits
 	logic [1:0] signs;
 	logic [1:0] hundreds;
 	logic [7:0] keycode [6];
@@ -111,7 +111,10 @@ module game (
 	assign HEX0[7] = 1'b1;
 	
 	//fill in the hundreds digit as well as the negative sign
-	assign HEX5 = {1'b1, ~signs[1], 3'b111, ~hundreds[1], ~hundreds[1], 1'b1};
+	//assign HEX5 = {1'b1, ~signs[1], 3'b111, ~hundreds[1], ~hundreds[1], 1'b1};
+	HexDriver hex_driver5 (score, HEX5[6:0]);
+	assign HEX5[7] = 1'b1;
+	
 	assign HEX2 = {1'b1, ~signs[0], 3'b111, ~hundreds[0], ~hundreds[0], 1'b1};
 	
 	
@@ -183,13 +186,16 @@ module game (
 	 );
 	 //A:0 D:1 W:2 F:3 <-:4 ->:5 up:6 sp:7 en:8 esc:9
 	 vga_sprite_controller v0(.CLK(MAX10_CLK1_50), .RESET(Reset_h), .key(key),
-					.red(VGA_R), .green(VGA_G), .blue(VGA_B), .hs(VGA_HS), .vs(VGA_VS));
+					.red(VGA_R), .green(VGA_G), .blue(VGA_B), .hs(VGA_HS), .vs(VGA_VS),
+					.score(score));
 					
 	 keycode_reader key0(.keycode(keycode), .key(key));
 	 
 	 counter c0(.Reset(Reset_h), .Clk(ARDUINO_IO[4]), .en(count_en), .address(audio_address));
 		
-	 audio_ram ram0(.address(audio_address), .clock(ARDUINO_IO[4]), .q(audio_data));
+	 //audio_ram ram0(.address(audio_address), .clock(ARDUINO_IO[4]), .q(audio_data));
+	 RAM_audio (.data_In(), .write_address(),.read_address(audio_address),.we(1'b0),
+					.Clk(ARDUINO_IO[5]),.data_Out(audio_data));
 		
 	 codec codec0(.sample({audio_data,8'b0}), .SCLK(ARDUINO_IO[5]), 
 						.LRCLK(ARDUINO_IO[4]), .Reset(Reset_h), .out(ARDUINO_IO[2]));

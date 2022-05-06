@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Thu May 05 20:10:09 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : game
+Top-level Entity Name : game
+Family : MAX 10
+Device : 10M50DAF484C7G
+Power Models : Final
+Total Thermal Power Dissipation : 107.52 mW
+Core Dynamic Thermal Power Dissipation : 2.02 mW
+Core Static Thermal Power Dissipation : 96.19 mW
+I/O Thermal Power Dissipation : 9.31 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

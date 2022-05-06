@@ -5,6 +5,27 @@ curr_state.not_playing 0 0 0
 curr_state.playing 1 0 1 
 curr_state.hold 1 1 0 
 
+State Machine - |game|vga_sprite_controller:v0|game_state:control|curr_state
+Name curr_state.fin curr_state.game curr_state.wait_key8 curr_state.read_key8 curr_state.wait_key7 curr_state.read_key7 curr_state.wait_key6 curr_state.read_key6 curr_state.wait_key5 curr_state.read_key5 curr_state.wait_key4 curr_state.read_key4 curr_state.wait_key3 curr_state.read_key3 curr_state.wait_key2 curr_state.read_key2 curr_state.wait_key1 curr_state.reset 
+curr_state.reset 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+curr_state.wait_key1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+curr_state.read_key2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+curr_state.wait_key2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+curr_state.read_key3 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+curr_state.wait_key3 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+curr_state.read_key4 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+curr_state.wait_key4 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+curr_state.read_key5 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+curr_state.wait_key5 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+curr_state.read_key6 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+curr_state.wait_key6 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.read_key7 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.wait_key7 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.read_key8 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.wait_key8 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.game 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.fin 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
 State Machine - |game|game_soc:u0|game_soc_sdram:sdram|m_next
 Name m_next.010000000 m_next.000010000 m_next.000001000 m_next.000000001 
 m_next.000000001 0 0 0 0 

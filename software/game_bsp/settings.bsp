@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>2022-5-2 20:26:58</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1651541218197</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>2022-5-5 18:32:29</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1651793549301</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>E:\learning\2022spring\ECE385\final_project\ece385final\ECE385\software\game_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\game_soc.sopcinfo</SopcDesignFile>

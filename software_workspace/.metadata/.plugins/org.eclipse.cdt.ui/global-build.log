@@ -394,3 +394,141 @@ Info: Building ../game_bsp/
 F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
 [BSP build complete]
 [game build complete]
+17:22:35 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+17:22:36 **** Incremental Build of configuration Nios II for project game_bsp ****
+make all 
+[BSP build complete]
+17:23:07 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+17:56:39 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+21:34:29 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+21:55:29 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+00:46:22 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+01:02:59 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+11:51:28 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+12:01:36 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+12:28:04 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+12:38:55 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+12:46:49 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+14:22:36 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+14:36:44 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+14:48:42 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+18:32:13 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+18:32:38 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+18:32:39 **** Build of configuration Nios II for project game_bsp ****
+make all 
+[BSP build complete]
+18:32:50 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+09:35:06 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+10:25:03 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+10:51:49 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
+11:08:27 **** Incremental Build of configuration Nios II for project game ****
+make all 
+Info: Building ../game_bsp/
+F:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../game_bsp/
+[BSP build complete]
+[game build complete]
